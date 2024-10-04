@@ -11,4 +11,6 @@ app = VannaFlaskApp(
     subtitle="SQL queries con lenguaje natural",
 )
 CORS(app.flask_app)
-app.run(host='0.0.0.0', port=5000)
+
+run_app = app.flask_app
+# app.run(host='0.0.0.0', port=5000)

@@ -23,5 +23,5 @@ services:
     env_file:
       - .env
     ports:
-      - "5000:5000"
-    command: python src/app_flask.py
+      - "9000:9000"
+    command: gunicorn -w 4 -b 0.0.0.0:9000 --reload src.app_flask:run_app
