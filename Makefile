@@ -23,7 +23,7 @@ clean:
 
 bash:
 	@echo "Opening a shell session"
-	$(COMPOSE) run --rm nql bash
+	$(COMPOSE) run --rm chainlit bash
 
 lock:
-	$(COMPOSE) run --rm nql poetry lock
+	$(COMPOSE) run --rm chainlit poetry lock

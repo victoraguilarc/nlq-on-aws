@@ -46,6 +46,7 @@ COPY --chown=appuser:appgroup /src /home/appuser/src
 ENV PYTHONPATH="/home/appuser/:${PYTHONPATH}"
 
 EXPOSE 8000
+EXPOSE 5000
 
 #CMD [ "streamlit", "run", "streamlit_app.py"]
 

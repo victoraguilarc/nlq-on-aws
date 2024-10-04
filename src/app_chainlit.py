@@ -1,5 +1,3 @@
-from typing import Dict, Optional
-
 import chainlit as cl
 from chainlit.input_widget import Select
 
@@ -63,11 +61,6 @@ async def setup_agent(settings):
 
 @cl.on_chat_start
 async def setup():
-    # await cl.Avatar(
-    #     name="Vanna",
-    #     url="https://app.vanna.ai/vanna.svg",
-    # ).send()
-
     await cl.ChatSettings(
         [
             Select(
