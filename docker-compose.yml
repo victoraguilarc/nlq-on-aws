@@ -1,0 +1,28 @@
+name: nql
+
+services:
+  chainlit:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - .:/home/appuser
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+#    command: tail -f /dev/null
+    command: chainlit run src/app_chainlit.py --host 0.0.0.0 --port 8000 -w
+
+  flask:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - .:/home/appuser
+    env_file:
+      - .env
+    ports:
+      - "9000:8000"
+    #    command: tail -f /dev/null
+    command: python src/app_flask.py
