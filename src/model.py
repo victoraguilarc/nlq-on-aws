@@ -15,6 +15,7 @@ vanna = VannaSetup(
     config={
         'api_key': OPENAI_API_KEY,
         'model': DEFAULT_MODEL,
+        'path': './cromadb',
     },
 )
 rds_uri = f"postgresql+psycopg2://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOSTNAME}:{DB_PORT}/{DB_NAME}"

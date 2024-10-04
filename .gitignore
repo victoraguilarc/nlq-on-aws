@@ -70,21 +70,7 @@ __pypackages__/
 
 
 .env
-
-
 .cache/
-
-
-# Docusaurus cache and generated files
-.docusaurus
-
-# Serverless directories
-.serverless/
-
-# DynamoDB Local files
-.dynamodb/
-
-
 .chroma/
 
 .ipynb_checkpoints/
@@ -101,4 +87,5 @@ tutorial
 .files
 .local
 *.sqlite3
+cromadb/
 tmp/

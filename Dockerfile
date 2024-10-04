@@ -40,7 +40,7 @@ RUN poetry config --local installer.no-binary psycopg2
 RUN poetry install --no-interaction --no-ansi --with dev
 
 # copy required files to image
-COPY --chown=appuser:appgroup static static
+COPY --chown=appuser:appgroup public public
 COPY --chown=appuser:appgroup /src /home/appuser/src
 
 ENV PYTHONPATH="/home/appuser/:${PYTHONPATH}"
