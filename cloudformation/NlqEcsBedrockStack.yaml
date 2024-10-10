@@ -8,17 +8,17 @@ Parameters:
 
   ECRImageTag:
     Type: String
-    Default: "2.0.0-bedrock"
+    Default: "stable"
     Description: The name of the ECR Image tag to use with ECS/Fargate.
 
   TaskName:
     Type: String
-    Default: "nlq-genai-bedrock"
+    Default: "nlq-genai"
     Description: The name of the ECS Task and Fargate Service.
 
   ProjectTagValue:
     Type: String
-    Default: "SO9250 Guidance for Natural Language Queries of Relational Databases on AWS"
+    Default: "Natural Language Queries of Relational Databases on AWS"
     Description: The Project Tag value applied to all resources.
 
 Resources:

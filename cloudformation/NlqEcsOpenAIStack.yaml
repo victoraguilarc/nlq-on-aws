@@ -26,6 +26,11 @@ Resources:
     Type: "AWS::ECS::TaskDefinition"
     Properties:
       ContainerDefinitions:
+        - Command:
+            - "-c"
+            - '4'
+            - amazon.com
+
         - Environment:
             - Name: "REGION_NAME"
               Value: !Ref AWS::Region

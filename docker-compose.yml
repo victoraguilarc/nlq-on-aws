@@ -1,6 +1,15 @@
 name: nql
 
 services:
+  postgres:
+    image: postgres:16
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
   chainlit:
     build:
       context: .
@@ -25,3 +34,6 @@ services:
     ports:
       - "9000:9000"
     command: gunicorn -w 4 -b 0.0.0.0:9000 --reload src.app_flask:run_app
+
+volumes:
+  postgres_data:

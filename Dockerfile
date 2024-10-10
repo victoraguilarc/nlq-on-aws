@@ -36,6 +36,7 @@ RUN pip install --upgrade pip
 RUN pip install setuptools
 RUN pip install "poetry==$POETRY_VERSION"
 
+RUN poetry config --local installer.no-binary psycopg2
 RUN poetry install --no-interaction --no-ansi --with dev
 
 # copy required files to image
@@ -48,6 +49,8 @@ EXPOSE 8000
 EXPOSE 9000
 
 USER appuser
+
+ENTRYPOINT []
 
 CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:9000", "src.app_flask:run_app"]
 

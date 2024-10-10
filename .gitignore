@@ -87,5 +87,6 @@ tutorial
 .files
 .local
 *.sqlite3
+.python_history
 cromadb/
 tmp/
