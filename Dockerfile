@@ -52,6 +52,6 @@ USER appuser
 
 ENTRYPOINT []
 
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:9000", "src.app_flask:run_app"]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:9000", "--log-level", "DEBUG", "src.app_flask:run_app"]
 
 
