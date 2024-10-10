@@ -1,3 +1,4 @@
+from flask import jsonify
 from vanna.flask import VannaFlaskApp
 from flask_cors import CORS
 
@@ -14,3 +15,7 @@ CORS(app.flask_app)
 
 run_app = app.flask_app
 # app.run(host='0.0.0.0')
+
+@run_app.route('/healthz', methods=['GET'])
+def health_check():
+    return jsonify(status="healthy"), 200
