@@ -1,0 +1,12 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+
+tmp/
+.files
+.ipython
+.cache
+cromadb
+.local
+.pdbhistory
+tutorial

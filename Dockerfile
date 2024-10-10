@@ -36,19 +36,19 @@ RUN pip install --upgrade pip
 RUN pip install setuptools
 RUN pip install "poetry==$POETRY_VERSION"
 
-RUN poetry config --local installer.no-binary psycopg2
 RUN poetry install --no-interaction --no-ansi --with dev
 
 # copy required files to image
 COPY --chown=appuser:appgroup public public
 COPY --chown=appuser:appgroup /src /home/appuser/src
 
-ENV PYTHONPATH="/home/appuser/:${PYTHONPATH}"
+ENV PYTHONPATH="/home/appuser"
 
 EXPOSE 8000
-EXPOSE 5000
+EXPOSE 9000
 
-#CMD [ "streamlit", "run", "streamlit_app.py"]
-
-# set the user to run the application
 USER appuser
+
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:9000", "src.app_flask:run_app"]
+
+

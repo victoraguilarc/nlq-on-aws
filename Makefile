@@ -27,3 +27,6 @@ bash:
 
 lock:
 	$(COMPOSE) run --rm chainlit poetry lock
+
+prod_build:
+	aws-vault exec nlq --no-session -- ./build.sh $(STAGE)
