@@ -42,6 +42,7 @@ RUN poetry install --no-interaction --no-ansi --with dev
 # copy required files to image
 COPY --chown=appuser:appgroup public public
 COPY --chown=appuser:appgroup /src /home/appuser/src
+COPY --chown=appuser:appgroup . /home/appuser
 
 ENV PYTHONPATH="/home/appuser"
 
@@ -52,6 +53,9 @@ USER appuser
 
 ENTRYPOINT []
 
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:9000", "--log-level", "DEBUG", "src.app_flask:run_app"]
+#CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:9000", "--log-level", "DEBUG", "src.app_flask:run_app"]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:9000", "--log-level", "DEBUG", "app:app"]
+
+
 
 

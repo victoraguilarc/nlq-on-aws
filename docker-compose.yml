@@ -33,7 +33,7 @@ services:
       - .env
     ports:
       - "9000:9000"
-    command: gunicorn -w 4 -b 0.0.0.0:9000 --reload --log-level=DEBUG src.app_flask:run_app
+#    command: gunicorn -w 4 -b 0.0.0.0:9000 --reload --log-level=DEBUG src.app_flask:run_app
 
 volumes:
   postgres_data:
