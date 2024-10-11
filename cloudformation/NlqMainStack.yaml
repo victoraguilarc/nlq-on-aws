@@ -310,7 +310,7 @@ Resources:
     Type: "AWS::ElasticLoadBalancingV2::TargetGroup"
     Properties:
       HealthCheckIntervalSeconds: 30
-      HealthCheckPath: "/healthz"
+        HealthCheckPath: "/healthz"
       Port: !Ref ALBPort
       Protocol: "HTTP"
       ProtocolVersion: "HTTP1"
