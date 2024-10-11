@@ -3,8 +3,9 @@ from vanna.flask import VannaFlaskApp
 from flask_cors import CORS
 
 
-from src.model import vanna
+from src.model import vanna, train_model
 
+train_model()
 app = VannaFlaskApp(
     vanna,
     allow_llm_to_see_data=True,
@@ -12,11 +13,11 @@ app = VannaFlaskApp(
     subtitle="SQL queries con lenguaje natural",
 )
 CORS(app.flask_app)
-app.flask_app.config['DEBUG'] = True
 
 run_app = app.flask_app
+
 # app.run(host='0.0.0.0')
 
-@run_app.route('/healthz', methods=['GET'])
-def health_check():
-    return jsonify(status="healthy"), 200
+# @run_app.route('/healthz', methods=['GET'])
+# def health_check():
+#     return jsonify(status="healthy"), 200

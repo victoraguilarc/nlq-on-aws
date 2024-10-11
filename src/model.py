@@ -30,6 +30,7 @@ vanna.connect_to_postgres(
 )
 
 def load_samples():
+    # cargar ejemplos desde el archivo yaml de ejemplos
     sql_samples = None
     with open("src/moma_examples.yaml", "r") as stream:
         sql_samples = yaml.safe_load(stream)
@@ -39,16 +40,14 @@ def train_model():
     vanna.train(
         documentation="Base de datos con información artistas y obras de arte",
     )
-    # Train with database schema
+    # Entrenar con el schema de la base de datos
     database_schema = database.get_table_info()
     vanna.train(ddl=database_schema)
 
-    # Train with SQL samples
+    # Entrenar con ejemplos SQL
     samples = load_samples()
     for sample in samples:
         vanna.train(
             question=sample['input'],
             sql=sample['sql_cmd'],
         )
-    training_data = vanna.get_training_data()
-    # print(training_data)
